@@ -1,9 +1,7 @@
-package demoqa;
-
 import org.junit.jupiter.api.Test;
-import pageobjects.pages.StudentRegistrationFormPage;
+import pages.StudentRegistrationFormPage;
 
-public class StudentRegistrationFormTest extends pageobjects.TestBase {
+public class StudentRegistrationFormTest extends TestBase {
     public String firstName = "Petr";
     public String lastName = "Petrov";
     public String email = "Pert@mail.com";
@@ -25,7 +23,7 @@ public class StudentRegistrationFormTest extends pageobjects.TestBase {
     void successfulRegistrationWithRequiredFieldsTest() {
         studentRegistrationForm
                 .openPage()
-                .checkThatTheSiteHasOpened()
+                .checkThatTheSiteHasOpened("Student Registration Form")
                 .closeBanners()
                 .setRequiredFields(firstName,
                         lastName,
@@ -35,7 +33,7 @@ public class StudentRegistrationFormTest extends pageobjects.TestBase {
                         month,
                         year)
                 .clickSubmit()
-                .checkThatTheTableHasOpened()
+                .checkThatTheTableHasOpened("Thanks for submitting the form")
                 .checkResultRequiredFields(firstName,
                         lastName,
                         gender,
@@ -50,7 +48,7 @@ public class StudentRegistrationFormTest extends pageobjects.TestBase {
     void successfulRegistrationWithAllFieldsTest() {
         studentRegistrationForm
                 .openPage()
-                .checkThatTheSiteHasOpened()
+                .checkThatTheSiteHasOpened("Student Registration Form")
                 .closeBanners()
                 .setAllFields(firstName,
                         lastName,
@@ -67,7 +65,7 @@ public class StudentRegistrationFormTest extends pageobjects.TestBase {
                         selectState,
                         selectCity)
                 .clickSubmit()
-                .checkThatTheTableHasOpened()
+                .checkThatTheTableHasOpened("Thanks for submitting the form")
                 .checkResultAllFields(firstName,
                         lastName,
                         email,

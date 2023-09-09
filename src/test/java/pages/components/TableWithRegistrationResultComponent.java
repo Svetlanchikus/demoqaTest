@@ -1,4 +1,4 @@
-package pageobjects.pages.components;
+package pages.components;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -28,8 +28,8 @@ public class TableWithRegistrationResultComponent {
         return this;
     }
 
-    public TableWithRegistrationResultComponent checkThatTheTableHasOpened() {
-        tableHeader.shouldHave(text("Thanks for submitting the form"));
+    public TableWithRegistrationResultComponent checkThatTheTableHasOpened(String header) {
+        tableHeader.shouldHave(text(header));
 
         return this;
     }
